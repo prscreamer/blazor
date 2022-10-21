@@ -2,8 +2,9 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/BlazorApp/.vs/BlazorApp
-/.vs/BlazorApp/FileContentIndex
+/bin
 /BlazorApp/bin
+/obj
 /BlazorApp/obj
-/.vs/BlazorApp/v17
+/BlazorApp/.vs
+/.vs
