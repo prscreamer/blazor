@@ -2,21 +2,14 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /source
 
-# copy csproj and restore as distinct layers
-COPY *.sln .
-COPY blazorapp/Client/*.csproj ./blazorapp/Client/
-COPY blazorapp/Server/*.csproj ./blazorapp/Server/
-COPY blazorapp/Shared/*.csproj ./blazorapp/Shared/
-# RUN dotnet restore
-
-# copy everything else and build app
-COPY blazorapp/Client/. ./blazorapp/Client/
-COPY blazorapp/Server/. ./blazorapp/Server/
-COPY blazorapp/Shared/. ./blazorapp/Shared/
-WORKDIR /source/blazorapp
+# copy everything
+COPY . ./
+# restore as distinct layers
+RUN dotnet restore
+# build and publish a release
 RUN dotnet publish -c release -o /app --no-restore
 
-# final stage/image
+# build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /app
 COPY --from=build /app ./
