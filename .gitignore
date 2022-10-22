@@ -8,3 +8,9 @@
 /BlazorApp/obj
 /BlazorApp/.vs
 /.vs
+/BlazorApp/Client/bin
+/BlazorApp/Client/obj
+/BlazorApp/Server/bin
+/BlazorApp/Server/obj
+/BlazorApp/Shared/bin
+/BlazorApp/Shared/obj
