@@ -7,7 +7,7 @@ COPY *.sln .
 COPY blazorapp/Client/*.csproj ./blazorapp/Client/
 COPY blazorapp/Server/*.csproj ./blazorapp/Server/
 COPY blazorapp/Shared/*.csproj ./blazorapp/Shared/
-RUN dotnet restore
+# RUN dotnet restore
 
 # copy everything else and build app
 COPY blazorapp/Client/. ./blazorapp/Client/
